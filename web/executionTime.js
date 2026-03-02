@@ -149,12 +149,12 @@ function buildTableHtml() {
     }, [
         $el("thead", {style: {"background": "var(--comfy-input-bg)"}}, [
             $el("tr", [
-                $el("th", {style: headerThStyle, "textContent": "Node Id"}),
-                $el("th", {style: headerThStyle, "textContent": "Node Title"}),
-                $el("th", {style: headerThStyle, "textContent": "Current Time"}),
-                $el("th", {style: headerThStyle, "textContent": "Per Time"}),
-                $el("th", {style: headerThStyle, "textContent": "Cur / Pre Time Diff"}),
-                $el("th", {style: headerThStyle, "textContent": "VRAM Used"})
+                $el("th", {style: headerThStyle, "textContent": "节点 ID"}),
+                $el("th", {style: headerThStyle, "textContent": "节点标题"}),
+                $el("th", {style: headerThStyle, "textContent": "本次运行时间"}),
+                $el("th", {style: headerThStyle, "textContent": "上次运行时间"}),
+                $el("th", {style: headerThStyle, "textContent": "本次与上次耗时差"}),
+                $el("th", {style: headerThStyle, "textContent": "显存占用"})
             ])
         ]),
         tableBody,
@@ -232,7 +232,7 @@ function buildTableHtml() {
         const [diffColor, diffText] = diff(runningData.total_execution_time, lastRunningDate?.total_execution_time);
 
          tableFooter.append($el("tr", [
-            $el("td", {style: {"textAlign": "right"}, "textContent": 'Max'}),
+            $el("td", {style: {"textAlign": "right"}, "textContent": '单节点运行最大时长'}),
             $el("td", {style: {"textAlign": "right"}, "textContent": ''}),
             $el("td", {
                 style: {"textAlign": "right"},
@@ -256,7 +256,7 @@ function buildTableHtml() {
         ]))
 
         tableFooter.append($el("tr", [
-            $el("td", {style: {"textAlign": "right"}, "textContent": 'Total'}),
+            $el("td", {style: {"textAlign": "right"}, "textContent": '本次运行总时长'}),
             $el("td", {style: {"textAlign": "right"}, "textContent": ''}),
             $el("td", {
                 style: {"textAlign": "right"},
